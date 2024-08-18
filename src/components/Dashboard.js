@@ -1,20 +1,59 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { calculateCurrentMonthTotals } from '../utils/calculateTotals';
+import React from "react";
+import { useSelector } from "react-redux";
+import { calculateCurrentMonthTotals } from "../utils/calculateTotals";
 
 function Dashboard() {
   const transactions = useSelector((state) => state.transactions.list);
-  const {     totalLentYetToReceive,
+  const {
+    totalLentYetToReceive,
     totalBorrowedYetToRevert,
-    overallBalance } = calculateCurrentMonthTotals(transactions);
+    overallBalance,
+    friendBalances,
+  } = calculateCurrentMonthTotals(transactions);
 
   return (
     <div className="dashboard">
       <h2>Dashboard</h2>
-  <div>{overallBalance}</div>
+      <div
+        className={`balance ${overallBalance < 0 ? "negative" : "positive"}`}
+      >
+        ₹ {overallBalance}
+      </div>
+      <div className="balance-details">
+        <div>Total amount lent but not yet received. </div>
+        <div
+          className={`balance ${
+            totalLentYetToReceive > 0 ? "negative" : "positive"
+          }`}
+        >
+          ₹ {Math.abs(totalLentYetToReceive)}
+        </div>
+      </div>
+      <div className="balance-details">
+        <div>Total amount borrowed but not yet reverted. </div>
+        <div
+          className={`balance ${
+            totalBorrowedYetToRevert > 0 ? "negative" : "positive"
+          }`}
+        >
+          ₹ {totalBorrowedYetToRevert}
+        </div>
+      </div>
+      <div className="friendList">
+        {Object.values(friendBalances).map(({ name, netBalance }) => {
+          const balanceClass =
+            netBalance < 0 ? "negativeBalance" : "positiveBalance";
 
-  <div>Total amount lent but not yet received. {totalLentYetToReceive}</div>
-  <div>Total amount borrowed but not yet reverted. {totalBorrowedYetToRevert}</div>
+          return (
+            <div key={name} className="friendItem">
+              <span className="friendName">{name}:</span>
+              <span className={`friendBalance ${balanceClass}`}>
+                ₹ {Math.abs(netBalance)}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

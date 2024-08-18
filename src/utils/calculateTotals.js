@@ -10,6 +10,7 @@ export const calculateCurrentMonthTotals = (transactions) => {
     totalLentYetToReceive,
     totalBorrowedYetToRevert,
     overallBalance: -totalLentYetToReceive - totalBorrowedYetToRevert,
+    friendBalances
   };
 };
 
