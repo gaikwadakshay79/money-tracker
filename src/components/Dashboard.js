@@ -4,13 +4,17 @@ import { calculateCurrentMonthTotals } from '../utils/calculateTotals';
 
 function Dashboard() {
   const transactions = useSelector((state) => state.transactions.list);
-  const { totalLent, totalPaidBack } = calculateCurrentMonthTotals(transactions);
+  const {     totalLentYetToReceive,
+    totalBorrowedYetToRevert,
+    overallBalance } = calculateCurrentMonthTotals(transactions);
 
   return (
     <div className="dashboard">
       <h2>Dashboard</h2>
-      <div>Total Lent This Month: ₹{totalLent}</div>
-      <div>Total Paid Back: ₹{totalPaidBack}</div>
+  <div>{overallBalance}</div>
+
+  <div>Total amount lent but not yet received. {totalLentYetToReceive}</div>
+  <div>Total amount borrowed but not yet reverted. {totalBorrowedYetToRevert}</div>
     </div>
   );
 }

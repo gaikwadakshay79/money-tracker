@@ -1,23 +1,12 @@
-.container {
-  max-width: 480px !important; /* Maximum width for mobile layout */
-  margin: 0 auto; /* Center the content */
-  padding: 16px; /* Padding around the content */
-  background-color: #282c34;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for a card-like effect */
-  border-radius: 8px; /* Optional: Rounded corners */
-}
-
-
 .floating-button {
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   right: 20px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
   font-size: 24px;
   text-align: center;
   line-height: 40px;
+  padding: 10px !important;
 }
 
 .navbar {
@@ -29,4 +18,86 @@
 body {
   background-color: #282c34;
   color: white;
+}
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-title{
+  /* background-color: #282c34 !important; */
+  /* color: white!important; */
+}
+
+.transaction-wrapper {
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #00AA3A;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 5px;
+  -webkit-box-shadow: inset 0px -5px 0px 0px #00AA3A;
+  -moz-box-shadow: inset 0px -5px 0px 0px #00AA3A;
+  box-shadow: inset 0px -5px 0px 0px #00AA3A;
+}
+
+.transaction.debit {
+  border: 1px solid #BA1A1A;
+  -webkit-box-shadow: inset 0px -5px 0px 0px #BA1A1A;
+  -moz-box-shadow: inset 0px -5px 0px 0px #BA1A1A;
+  box-shadow: inset 0px -5px 0px 0px #BA1A1A;
+}
+.transaction-details {
+  display: flex;
+  flex-direction: column
+}
+
+.friends-list, .transaction-wrapper {
+  margin-top: 20px;
+}
+
+.friend{
+  display: flex;
+  justify-content: start;
+  gap: 21px;
+}
+
+.transaction-details-name, .friend-details-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.transaction-details-description, .friend-details-phone {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.transaction-amount {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.transaction-amount.credit {
+  color: #00AA3A;
+}
+
+.transaction-amount.debit {
+  color: #BA1A1A;
+}
+
+.transaction-type{
+  font-size: 0.7em;
+}
+.nav-link{
+  cursor: pointer;
+}
+.nav-link:hover{
+  color: #1652cb!important;
+}
+.nav-link.active{
+  color: #1652cb!important;
 }

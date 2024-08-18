@@ -5,13 +5,13 @@ function Footer() {
   return (
     <footer className="fixed-bottom bg-light text-center">
       <nav className="navbar navbar-light bg-light justify-content-around">
-        <NavLink to="/dashboard" className="nav-link" activeClassName="active">
+        <NavLink to="/dashboard" className="nav-link" activeclassname="active">
           Dashboard
         </NavLink>
-        <NavLink to="/transactions" className="nav-link" activeClassName="active">
+        <NavLink to="/transactions" className="nav-link" activeclassname="active">
           Transactions
         </NavLink>
-        <NavLink to="/friends" className="nav-link" activeClassName="active">
+        <NavLink to="/friends" className="nav-link" activeclassname="active">
           Friends
         </NavLink>
       </nav>

@@ -12,6 +12,8 @@ import UserName from "./components/UserName";
 import Footer from "./components/footer";
 import NewTransaction from "./components/NewTransaction";
 import NewFriend from "./components/NewFriend";
+import Header from "./components/Header"; 
+import "./App.css";
 
 function App() {
   const userName = useSelector((state) => state.user.name);
@@ -39,6 +41,7 @@ function App() {
 
   return (
     <div className="container">
+      <Header /> {/* Add Header component here */}
       {!userName ? (
         <UserName />
       ) : (
